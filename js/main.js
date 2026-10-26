@@ -13,6 +13,22 @@
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Compose the contact message in the visitor's email app.
+  var contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(contactForm);
+    var subject = 'Portfolio message from ' + formData.get('name');
+    var body = [
+      'Name: ' + formData.get('name'),
+      'Email: ' + formData.get('email'),
+      '',
+      formData.get('message')
+    ].join('\n');
+    window.location.href = 'mailto:tejada_renielcarlo@fbc.ph.education?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
   // Reveal on scroll
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

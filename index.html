@@ -228,8 +228,26 @@
 <section class="cta" id="contact">
   <h2 class="reveal">Let's Make <span class="serif">It Happen</span></h2>
   <p class="reveal">Open to internships, collaborations and new challenges. Let's work together to bring your ideas to life.</p>
-  <!-- Replace with your real email -->
-  <a href="mailto:tejada_renielcarlo@fbc.ph.education" class="btn dark reveal">Get in Touch <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <form class="contact-form reveal" id="contactForm">
+    <div class="contact-fields">
+      <label>
+        Name
+        <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      </label>
+      <label class="message-field">
+        Message
+        <textarea name="message" placeholder="Tell me about your idea..." rows="4" required></textarea>
+      </label>
+    </div>
+    <button class="contact-submit" type="submit">
+      Send message
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </button>
+  </form>
 </section>
 </main>
 
