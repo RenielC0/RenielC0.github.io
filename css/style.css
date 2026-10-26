@@ -127,18 +127,41 @@ blockquote small{display:block;color:var(--muted);font-size:.72rem}
 
 /* works */
 .works{padding:60px var(--pad) 100px;max-width:1200px;margin:0 auto}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 28px;margin-top:50px}
-.thumb{border-radius:22px;aspect-ratio:4/3;display:grid;place-items:center;padding:8%;transition:.4s;overflow:hidden}
-.work:hover .thumb{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
-.t1{background:linear-gradient(135deg,#e6f0ff,#bcd4ff)}.t2{background:linear-gradient(135deg,#e3f3f9,var(--lime))}
-.t3{background:linear-gradient(135deg,#16262e,#2f5568)}.t4{background:linear-gradient(135deg,#fff1d6,#ffd28a)}
-.mock{width:100%;height:100%;background:#fff;border-radius:12px;padding:14px;box-shadow:0 16px 30px rgba(0,0,0,.15)}
-.mock i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#d6dac9;margin-right:5px}
-.rows{margin-top:14px;display:grid;gap:10px}.rows b{height:14px;border-radius:6px;background:var(--card)}.rows b:nth-child(1){width:70%;background:var(--lime)}.rows b:nth-child(2){width:100%}.rows b:nth-child(3){width:50%}
-.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 4px 6px}
-.meta h3{font-weight:500;font-size:1.05rem}
-.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{font-size:.68rem;padding:4px 10px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
-.work>p{margin:0 4px;font-size:.88rem;color:var(--muted)}
+.project-case{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);gap:clamp(32px,5vw,64px);align-items:center;margin-top:48px}
+.project-visual{position:relative;padding:0 5px 5px 0}
+.project-preview{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:28px;background:#102e35;box-shadow:4px 4px 0 #2f8bb0,0 24px 60px rgba(15,35,42,.18);isolation:isolate}
+.project-preview>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:brightness(.72) saturate(.85)}
+.preview-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,23,23,.86),rgba(5,23,23,.4) 58%,rgba(5,23,23,.12)),linear-gradient(0deg,rgba(2,18,12,.75),transparent 55%)}
+.preview-top{position:absolute;inset:16px 4.2% auto;display:flex;align-items:center;justify-content:space-between;gap:14px;color:#fff;font-size:clamp(.48rem,.75vw,.68rem)}
+.preview-brand{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.preview-brand img{width:25px;height:25px;border-radius:50%;object-fit:cover}
+.preview-brand b,.preview-brand small{display:block}
+.preview-brand b{font-size:1.05em}
+.preview-brand small{font-size:.78em;opacity:.75}
+.preview-nav{opacity:.85}
+.preview-signin{white-space:nowrap}
+.preview-copy{position:absolute;left:6.5%;top:25%;width:min(60%,410px);color:#fff}
+.preview-label{display:inline-block;padding:5px 10px;border:1px solid rgba(255,255,255,.32);border-radius:99px;font-size:clamp(.45rem,.65vw,.62rem);letter-spacing:.04em}
+.preview-copy h3{margin:12px 0 8px;font-size:clamp(1.15rem,3vw,2.7rem);letter-spacing:-.045em;line-height:.98}
+.preview-copy h3 em{font-style:normal;color:#a8dfbd}
+.preview-copy p{max-width:390px;font-size:clamp(.52rem,.85vw,.78rem);line-height:1.5;color:rgba(255,255,255,.82)}
+.preview-action{display:inline-flex;gap:10px;align-items:center;margin-top:14px;padding:8px 14px;border-radius:8px;background:#43834e;color:#fff;font-size:clamp(.5rem,.72vw,.68rem);font-weight:600}
+.preview-link{position:absolute;left:24px;bottom:22px;display:inline-flex;gap:12px;align-items:center;padding:12px 18px;border:1px solid rgba(255,255,255,.48);border-radius:99px;background:rgba(11,29,22,.78);color:#fff;font-size:.78rem;font-weight:600;backdrop-filter:blur(8px);transition:transform .2s,background .2s}
+.preview-link:hover{transform:translateY(-2px);background:#142a20}
+.project-details{padding:12px 0}
+.project-category{display:flex;align-items:center;gap:9px;margin-bottom:14px;color:#526c6f;font:600 .75rem/1.4 ui-monospace,Consolas,monospace;letter-spacing:.08em}
+.project-category svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.project-details h3{font-size:clamp(2.2rem,4vw,3.55rem);line-height:.95;letter-spacing:-.055em;font-weight:600}
+.project-description{max-width:370px;margin-top:22px;color:#6a7068;font-size:.94rem;line-height:1.8}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
+.project-tags span{padding:8px 13px;border-radius:99px;background:#e5f2f1;color:#39727a;font-size:.68rem;font-weight:600;white-space:nowrap}
+.project-links{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px}
+.project-button{display:inline-flex;align-items:center;gap:12px;padding:10px 15px;border-radius:99px;font-size:.75rem;font-weight:600;transition:transform .2s,background .2s}
+.project-button:hover{transform:translateY(-2px)}
+.project-button.primary{background:#e5f2f1;color:#285f68}
+.project-button.primary:hover{background:#d5e9e7}
+.project-button.secondary{border:1px solid #d7e5e3;color:#285f68}
+.project-button.secondary:hover{background:#f2f8f7}
 
 /* about */
 .about{padding:60px var(--pad) 100px;max-width:1200px;margin:0 auto}
@@ -200,6 +223,26 @@ blockquote small{display:block;color:var(--muted);font-size:.72rem}
   .hero-bottom .btn{margin:0;align-self:center}
   .hero-actions{margin:0;justify-content:center;flex-wrap:wrap}
   .showcase-card{grid-template-columns:1fr}.w1,.w2,.w3,.w4{grid-column:1}.label-pill{display:none}
-  .grid{grid-template-columns:1fr}
+  .project-case{grid-template-columns:1fr;gap:36px}
+  .project-preview{border-radius:22px}
+  .project-details{padding:0 4px}
+  .project-description{max-width:560px}
+  .project-tags{margin-top:24px}
+  .project-links{flex-direction:row;flex-wrap:wrap}
+  .preview-copy{top:27%}
+  .preview-link{left:16px;bottom:14px;padding:10px 14px;font-size:.7rem}
   .about-text .rows li{grid-template-columns:1fr auto}.about-text .rows em{grid-column:1;grid-row:2}
+}
+@media (max-width:480px){
+  .project-preview{aspect-ratio:4/3;border-radius:18px}
+  .preview-top{inset:12px 4% auto}
+  .preview-nav,.preview-signin{display:none}
+  .preview-copy{top:27%;width:82%}
+  .preview-copy h3{font-size:clamp(1.35rem,7vw,2rem)}
+  .preview-copy p{font-size:.65rem;max-width:290px}
+  .preview-label{font-size:.48rem}
+  .preview-action{margin-top:10px}
+  .preview-link{left:12px;bottom:12px;padding:8px 12px;font-size:.64rem}
+  .project-tags{gap:6px}
+  .project-tags span{padding:7px 10px}
 }
