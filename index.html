@@ -228,7 +228,9 @@
 <section class="cta" id="contact">
   <h2 class="reveal">Let's Make <span class="serif">It Happen</span></h2>
   <p class="reveal">Open to internships, collaborations and new challenges. Let's work together to bring your ideas to life.</p>
-  <form class="contact-form reveal" id="contactForm">
+  <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="b470ea11-b44c-4929-8742-f6fc14087670">
+    <input type="hidden" name="subject" value="New portfolio contact message">
     <div class="contact-fields">
       <label>
         Name
@@ -247,6 +249,7 @@
       Send message
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
     </button>
+    <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
   </form>
 </section>
 </main>

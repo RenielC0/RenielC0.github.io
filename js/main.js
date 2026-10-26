@@ -13,20 +13,37 @@
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Compose the contact message in the visitor's email app.
+  // Submit contact messages through Web3Forms.
   var contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', function (e) {
+  var contactStatus = document.getElementById('contactStatus');
+  var contactSubmit = contactForm.querySelector('button[type="submit"]');
+  contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    var formData = new FormData(contactForm);
-    var subject = 'Portfolio message from ' + formData.get('name');
-    var body = [
-      'Name: ' + formData.get('name'),
-      'Email: ' + formData.get('email'),
-      '',
-      formData.get('message')
-    ].join('\n');
-    window.location.href = 'mailto:tejada_renielcarlo@fbc.ph.education?subject=' +
-      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    contactStatus.textContent = '';
+    contactStatus.removeAttribute('data-state');
+    contactSubmit.disabled = true;
+    contactSubmit.firstChild.textContent = 'Sending...';
+
+    try {
+      var response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      if (!response.ok) throw new Error('Web3Forms request failed: ' + response.status);
+
+      var result = await response.json();
+      if (!result.success) throw new Error(result.message || 'Web3Forms could not accept the message.');
+
+      contactStatus.textContent = 'Thanks! Your message has been sent.';
+      contactForm.reset();
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      contactStatus.dataset.state = 'error';
+      contactStatus.textContent = 'Sorry, your message could not be sent. Please try again later.';
+    } finally {
+      contactSubmit.disabled = false;
+      contactSubmit.firstChild.textContent = 'Send message';
+    }
   });
 
   // Reveal on scroll
