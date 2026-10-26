@@ -96,7 +96,8 @@ body.modal-open{overflow:hidden}
 .pitch svg{width:100%;max-width:260px;fill:var(--lime-soft);stroke:#2a7a9b;stroke-width:2}
 .net svg{width:100%;max-width:240px}.net line{stroke:#a7ae96;stroke-width:2}.net circle{fill:var(--ink)}
 .w4{grid-column:4/7}
-.label-pill{position:absolute;left:50%;top:46%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;font-size:.85rem;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.label-pill{position:absolute;left:50%;top:46%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;font-size:.85rem;box-shadow:0 8px 20px rgba(0,0,0,.3);white-space:nowrap;transition:background .2s,box-shadow .2s}
+.label-pill:hover,.label-pill:focus-visible{background:#243238;box-shadow:0 10px 24px rgba(0,0,0,.35)}
 
 /* statement */
 .statement{position:relative;padding:110px var(--pad) 120px;max-width:1100px;margin:0 auto;text-align:center}
@@ -222,7 +223,8 @@ blockquote small{display:block;color:var(--muted);font-size:.72rem}
   .hero-bottom{flex-direction:column;gap:14px;align-items:center}
   .hero-bottom .btn{margin:0;align-self:center}
   .hero-actions{margin:0;justify-content:center;flex-wrap:wrap}
-  .showcase-card{grid-template-columns:1fr}.w1,.w2,.w3,.w4{grid-column:1}.label-pill{display:none}
+  .showcase-card{grid-template-columns:1fr}.w1,.w2,.w3,.w4{grid-column:1}
+  .label-pill{position:relative;left:auto;top:auto;transform:none;justify-self:center;grid-column:1;margin-top:0}
   .project-case{grid-template-columns:1fr;gap:36px}
   .project-preview{border-radius:22px}
   .project-details{padding:0 4px}
